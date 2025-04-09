@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            zyJavBUS.style.switch
-// @version         0.1
+// @version         0.2
 // @author          zyashakii
 // @description     样式调整
 // @match           https://www.javbus.com/*

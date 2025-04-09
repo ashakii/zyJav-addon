@@ -66,3 +66,41 @@ a.zy-match {
   height: 14px;
   border-radius: 50% !important;
 }
+
+.item {
+  &:has(.is-normal) {
+    border: 5px solid var(--is-normal)
+  }
+
+  ;
+
+  &:has(.is-crack) {
+    border: 5px solid var(--is-crack)
+  }
+
+  ;
+
+  &:has(.is-fourk) {
+    border: 5px solid var(--is-fourk)
+  }
+
+  ;
+
+  &:has(.is-wuma) {
+    border: 5px solid var(--is-wuma)
+  }
+
+  ;
+
+  &:has(.is-zh) {
+    border: 5px solid var(--is-zh)
+  }
+
+  ;
+
+  &:has(.is-uc) {
+    border: 5px solid var(--is-uc)
+  }
+
+  ;
+}

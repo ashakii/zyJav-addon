@@ -13,7 +13,7 @@ h4[style="position:relative"] {
   gap: 10px;
 }
 
-#waterfall .item {
+#waterfall .item:not(.item:has(.avatar-box)) {
   max-width: 23%;
   min-width: 300px;
   border-radius: 5px;

@@ -6,64 +6,26 @@ h4[style="position:relative"] {
 
 #waterfall {
   width: 100%;
-  max-width: 1400px;
-  margin: 15px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  gap: 10px;
 }
 
 #waterfall .item {
-  min-width: 125px;
-  max-width: 420px;
+  max-width: 30%;
+  min-width: 300px;
   border-radius: 5px;
   display: flex;
-
-  &:has(.is-normal) {
-    border: 5px solid var(--is-normal)
-  }
-
-  ;
-
-  &:has(.is-crack) {
-    border: 5px solid var(--is-crack)
-  }
-
-  ;
-
-  &:has(.is-fourk) {
-    border: 5px solid var(--is-fourk)
-  }
-
-  ;
-
-  &:has(.is-wuma) {
-    border: 5px solid var(--is-wuma)
-  }
-
-  ;
-
-  &:has(.is-zh) {
-    border: 5px solid var(--is-zh)
-  }
-
-  ;
-
-  &:has(.is-uc) {
-    border: 5px solid var(--is-uc)
-  }
-
-  ;
 }
 
 .movie-box {
   display: flex;
+  padding: 5px;
+  gap:5px;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, .3);
 }
 
 .movie-box:hover {
@@ -71,10 +33,10 @@ h4[style="position:relative"] {
   transition: 0.3s;
 }
 
+.movie-box,
 .movie-box .photo-frame,
 .movie-box .photo-info,
 .zymatch-container {
-  margin: 10px;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, .3);
 }
@@ -94,7 +56,6 @@ h4[style="position:relative"] {
 }
 
 .movie-box .photo-info {
-  margin: 0 10px 10px 10px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

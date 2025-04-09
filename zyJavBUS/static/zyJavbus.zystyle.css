@@ -38,7 +38,6 @@
 
 .zymatch-container {
   padding: 6px 10px;
-  margin: 0 10px 10px 10px;
   display: flex;
   gap: 5px;
   flex-wrap: wrap;

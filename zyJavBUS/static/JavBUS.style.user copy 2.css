@@ -1,0 +1,145 @@
+:root {
+  --x-bgc: #121212;
+  --x-sub-bgc: #202020;
+  --x-ftc: #fffffff2;
+  --x-sub-ftc: #aaa;
+  --x-grey: #313131;
+  --x-blue: #0a84ff;
+  --x-orange: #ff9f0a;
+  --x-green: #30d158;
+  --x-red: #ff453a;
+  --x-yellow: #ffd60a;
+  --x-line-h: 22px;
+  --x-thumb-w: 190px;
+  --x-cover-w: 360px;
+  --x-thumb-ratio: 147 / 200;
+  --x-cover-ratio: 400 / 269;
+  --x-avatar-ratio: 1;
+  --x-sprite-ratio: 4 / 3;
+}
+
+.ad-box,
+.alert-info {
+  display: none !important;
+}
+
+#waterfall,
+.masonry {
+  all: unset !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 15px;
+  width: 100% !important;
+}
+
+#waterfall>.item,
+.masonry>.item {
+  all: unset !important;
+  flex: 0 0 25% !important;
+  box-sizing: border-box !important;
+  margin-bottom: 15px;
+}
+
+.movie-box {
+  display: flex !important;
+  flex-direction: column !important;
+  width: auto !important;
+  margin: 5px !important;
+  height: 400px !important;
+}
+
+.photo-frame {
+  margin: 5px !important;
+  height: 245px !important;
+}
+
+.photo-frame img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.photo-info {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 370px;
+}
+
+button.zy-offline {
+  font-size: 12px !important;
+  padding: 5px 12px !important;
+  color: white;
+  border: none !important;
+  cursor: pointer !important;
+  position: relative !important;
+  overflow: hidden;
+}
+
+button.zy-offline:hover {
+  background-color: rgb(102, 252, 142) !important;
+  color: #000000 !important;
+}
+
+.button.is-loading {
+  pointer-events: none;
+  color: transparent;
+}
+
+.button:disabled {
+  opacity: 0.8;
+  cursor: not-allowed !important;
+}
+
+.button.is-loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  transform: translateY(-50%);
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: translate(-100%, -50%);
+  }
+
+  100% {
+    transform: translate(100%, -50%);
+  }
+}
+
+button.is-uc {
+  background-color: #D71103;
+}
+
+button.is-zh {
+  background-color: #FE5E08;
+}
+
+button.is-crack {
+  background-color: #156AA8;
+}
+
+button.is-normal {
+  background-color: #555555;
+}
+
+button.is-wuma {
+  background-color: #00AC6A;
+}
+
+button.is-fourk {
+  background-color: #1e9022;
+}
+
+button.is-gongyan {
+  background-color: #d30086;
+}

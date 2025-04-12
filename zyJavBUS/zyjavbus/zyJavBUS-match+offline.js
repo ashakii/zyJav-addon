@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            zyJavBUS-match+offline
-// @version         0.1
+// @version         0.2
 // @author          zyashakii
 // @description     javbus-115 网盘匹配和离线
 // @match           https://www.javbus.com/*
@@ -416,9 +416,15 @@ const extractData = (data, keys = ["pc", "cid", "fid", "n", "s", "t"], format = 
       const zy_magnets = document.querySelector('.zymagnets-box')
       if (table && table.querySelector('a')) {
         observer.disconnect();
-        const magnets = getMagnets();
-        const htmlString = parseMagnetTable(magnets, inMagnetsStr);
-        zy_magnets.innerHTML = htmlString;
+        const magnets = getMagnets().filter(m => m !== undefined);
+        if (magnets.length) {
+          const htmlString = parseMagnetTable(magnets, inMagnetsStr);
+          zy_magnets.innerHTML = htmlString;
+        } else {
+          const magTable = document.querySelector('.zymagnets-box');
+          magTable.innerHTML = "没有磁力链接!!!";
+        }
+
         // insertMagnets();
         // window.addEventListener("JavDB.magnet", insertMagnets);
         // observer.disconnect();

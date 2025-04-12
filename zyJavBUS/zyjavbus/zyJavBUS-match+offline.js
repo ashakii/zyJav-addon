@@ -511,6 +511,12 @@ const extractData = (data, keys = ["pc", "cid", "fid", "n", "s", "t"], format = 
       };
 
       const sources = extractData(data.filter((it) => regex.test(it.n)));
+      if (!sources.length) {
+        cont.classList.add("is-nomatch");
+        cont.textContent = "暂无匹配";
+        await match115.setItem(code, sources);
+        return;
+      }
       sources.forEach((source) => {
         const newTagNode = document.createElement('div')
         newTagNode.classList.add("zymatch-item");
@@ -523,8 +529,6 @@ const extractData = (data, keys = ["pc", "cid", "fid", "n", "s", "t"], format = 
       await match115.setItem(code, sources);
     } catch (err) {
       if (load.dataset.uid !== UUID) return;
-      cont.classList.add("is-nomatch");
-      cont.textContent = "暂无匹配";
       Util.print(err?.message);
     }
   };

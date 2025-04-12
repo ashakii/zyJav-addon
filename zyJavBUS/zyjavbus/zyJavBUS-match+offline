@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name            zyjavBUS-match+offline
+// @name            zyJavBUS-match+offline
 // @version         0.1
 // @author          zyashakii
 // @description     javbus-115 网盘匹配和离线
@@ -102,7 +102,11 @@ const config = [
 ];
 
 //match菜单rename配置
-const matchRename = "$zh$crack$wuma$fourk [$nvyou] $code"
+const renameConfig = {
+  rename: "$zh$crack$wuma$fourk [$nvyou] $code",
+  clean: true,
+  cover: true,
+}
 
 const parseName = (name) => {
   return {
@@ -573,14 +577,16 @@ const extractData = (data, keys = ["pc", "cid", "fid", "n", "s", "t"], format = 
     const file_name = match_item.title;
     const filter = ({ s }) => s > 157286400;
     if (target.classList.contains('is-rename')) {
-      const rename = preRename(details, matchRename);
+      const rename = preRename(details, renameConfig.rename);
       const renameTxt = Offline.defaultRenameTxt;
       const { videos } = await Req115.localVerify(cid, codes, filter);
       const { zh, crack, fourk, wuma } = parseName(file_name);
-      await Req115.handleClean(videos, cid);
+      if (renameConfig.clean) await Req115.handleClean(videos, cid);
       await Req115.handleRename(videos, cid, { rename, renameTxt, zh, crack, fourk, wuma });
-      const { data } = await Req115.handleCover(cover, cid, `${code}.cover.jpg`);
-      if (data?.file_id) Req115.filesEdit(cid, data.file_id);
+      if (renameConfig.cover) {
+        const { data } = await Req115.handleCover(cover, cid, `${code}.cover.jpg`);
+        if (data?.file_id) Req115.filesEdit(cid, data.file_id);
+      }
       matcher();
     }
     if (target.classList.contains('is-cover')) {

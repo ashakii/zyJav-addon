@@ -1,5 +1,6 @@
 class Magnet {
-  static zhReg = /中文|中字|字幕|\[[a-z]?hdc[a-z]?\]|[-_\s]+(uc|c|ch|cu|zh)(?![a-z])/i;
+  //static zhReg = /中文|中字|字幕|\[[a-z]?hdc[a-z]?\]|[-_\s]+(uc|c|ch|cu|zh)(?![a-z])/i;
+  static zhReg = /中文|中字|字幕|-u?c(?![a-z])|.+(?<![a-z])ch(?![a-z])|\dc(?![a-z])/i;
   static crackReg = /无码|無碼|流出|破解|解密版|uncensored|破[一-鿆]版|[-_\s]+(cu|u|uc)(?![a-z])/i;
   static fourkReg = /4k/i;
   static ucReg = /-uc|破解-c|(UC.torrent)|C.torrent.无码|C.torrent.无码破解/i;
@@ -12,6 +13,7 @@ class Magnet {
   static fc2Reg = /FC2-/i;
   static topReg = /\[TOP250]/i;
   static gongyanReg = /\[共演]/i;
+  static adsReg = /6k-c/i;
   static useTransByte() {
     const rules = [
       { unit: /byte/i, trans: (size) => size },

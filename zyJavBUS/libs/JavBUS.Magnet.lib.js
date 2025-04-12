@@ -13,7 +13,7 @@ class Magnet {
   static fc2Reg = /FC2-/i;
   static topReg = /\[TOP250]/i;
   static gongyanReg = /\[共演]/i;
-  static adsReg = /6k-c/i;
+  static noadsReg = /\.torrent(?:$|\.)|C_GG5|-C|X1080X字幕/i;
   static useTransByte() {
     const rules = [
       { unit: /byte/i, trans: (size) => size },

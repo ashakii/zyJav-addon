@@ -35,6 +35,8 @@
 // @grant           GM_notification
 // @grant           GM_addElement
 // @grant           window.close
+// @updateURL       https://raw.githubusercontent.com/ashakii/zyJav-addon/main/zyJavBUS/zyjavbus/zyJavBUS-match+offline.js
+// @downloadURL     https://raw.githubusercontent.com/ashakii/zyJav-addon/main/zyJavBUS/zyjavbus/zyJavBUS-match+offline.js
 // @require         https://github.com/Tampermonkey/utils/raw/d8a4543a5f828dfa8eefb0a3360859b6fe9c3c34/requires/gh_2215_make_GM_xhr_more_parallel_again.js
 // ==/UserScript==
 

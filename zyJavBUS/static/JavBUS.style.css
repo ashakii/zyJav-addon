@@ -14,7 +14,7 @@ h4[style="position:relative"],
   gap: 10px;
 }
 
-#waterfall.movie-box {
+#waterfall .movie-box {
   display: flex;
   padding: 5px;
   gap: 5px;

@@ -179,7 +179,6 @@ const getDetails = (dom = document) => {
 
   return { ...Util.codeParse(info.code), ...info };
 };
-console.log(getDetails());
 
 const renderAction = ({ color, index, idx, desc, name }) => {
   return `

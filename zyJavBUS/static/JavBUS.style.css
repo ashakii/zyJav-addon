@@ -1,7 +1,8 @@
 .ad-box,
 .alert-info,
 h4[style="position:relative"],
-.movie:has(#magnet-table) {
+.movie:has(#magnet-table);
+#mag-submit-show {
   display: none !important;
 }
 

@@ -207,23 +207,15 @@ const parseMagnet = (node) => {
   const url = link.href.split("&")[0];
   const name = link?.textContent?.trim() ?? "";
   const sizestr = meta?.textContent?.trim() ?? ""
+  const time = date?.textContent?.trim() ?? "";
   const size = transToByte(sizestr.split(",")[0]);
   const uc = Magnet.ucReg.test(name) || (Magnet.zhReg.test(name) && Magnet.crackReg.test(name));
   const crack = Magnet.crackReg.test(name);
   const zh = !!first.querySelector(".a.btn-warning") || Magnet.zhReg.test(name);
   const fourk = Magnet.fourkReg.test(name);
+  const noads = Magnet.noadsReg.test(name) || Magnet.ucReg.test(name);
   const type = uc ? "uc" : zh ? "zh" : crack ? "crack" : fourk ? "fourk" : "normal";
-  return {
-    url,
-    uc,
-    crack,
-    zh,
-    size,
-    fourk,
-    sizestr,
-    name,
-    type,
-  };
+  return { url, uc, crack, zh, size, fourk, sizestr, name, type, noads, time };
 };
 
 const newParseMagnet = (node) => {
@@ -235,14 +227,7 @@ const newParseMagnet = (node) => {
   const crack = link.className.includes('is-crack') || Magnet.crackReg.test(name);
   const zh = link.className.includes('is-zh') || Magnet.zhReg.test(name);
   const fourk = link.className.includes('is-fourk') || Magnet.fourkReg.test(name);
-  return {
-    url,
-    uc,
-    crack,
-    zh,
-    fourk,
-    name,
-  };
+  return { url, uc, crack, zh, fourk, name, };
 };
 
 const getMagnets = (dom = document) => {
@@ -258,8 +243,9 @@ const parseMagnetTable = (magnets, inMagnetsStr) => {
               <a class="is-${m.type}" href="${m.url}" title="${m.name}">${m.name}</a>
             </div>
             <div class="mag-info">
+              <span class="time is-${m.type}">${m.time}</span>
               <span class="size is-${m.type}">${m.sizestr}</span>
-              <span class="is-${m.type}">${m.type.toUpperCase()}</span>
+              <span class="is-${m.type}">${m.type.toUpperCase()} ${m.noads ? '💟' : ''}</span>
             </div>
             <div class="zy_btns">${inMagnetsStr}</div>
           </div>
@@ -416,7 +402,7 @@ const extractData = (data, keys = ["pc", "cid", "fid", "n", "s", "t"], format = 
       const zy_magnets = document.querySelector('.zymagnets-box')
       if (table && table.querySelector('a')) {
         observer.disconnect();
-        const magnets = getMagnets().filter(m => m !== undefined);
+        const magnets = getMagnets().filter(m => m);
         if (magnets.length) {
           const htmlString = parseMagnetTable(magnets, inMagnetsStr);
           zy_magnets.innerHTML = htmlString;

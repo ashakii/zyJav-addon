@@ -50,6 +50,7 @@ const config = [
   },
   {
     name: "无码",
+    rename: "${zh}${crack}[无码]${fourk} ${nvyou} ${code}",
     color: "is-wuma",
     inMagnets: true,
   },
@@ -863,7 +864,7 @@ const extractData = (data, keys = ["pc", "cid", "fid", "n", "s", "t"], format = 
     if (!item) return;
 
     const onKeyDown = (ev) => {
-      if (ev.key === 'z' || ev.key === 'Z') {
+      if (ev.key.toLowerCase() === 'z') {
         showIframe(item);
         document.removeEventListener('keydown', onKeyDown);
       }
@@ -913,6 +914,7 @@ const extractData = (data, keys = ["pc", "cid", "fid", "n", "s", "t"], format = 
     };
     setTimeout(() => { // 防止立即触发关闭
       document.addEventListener('click', onClick);
+      document.addEventListener('keydown', e => e.key === 'Escape' && onClick(e));
     }, 100);
   }
 })();

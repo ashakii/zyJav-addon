@@ -14,7 +14,7 @@ h4[style="position:relative"],
   gap: 10px;
 }
 
-.movie-box {
+#waterfall.movie-box {
   display: flex;
   padding: 5px;
   gap: 5px;
@@ -23,25 +23,25 @@ h4[style="position:relative"],
   width: 100%;
 }
 
-.movie-box:hover {
+#waterfall .movie-box:hover {
   border: 1px solid #0047a3;
   transition: 0.3s;
 }
 
-.movie-box,
-.movie-box .photo-frame,
-.movie-box .photo-info,
+#waterfall .movie-box,
+#waterfall .movie-box .photo-frame,
+#waterfall .movie-box .photo-info,
 .zymatch-container {
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, .3);
 }
 
-.movie-box .photo-frame {
+#waterfall .movie-box .photo-frame {
   aspect-ratio: 1.5;
   overflow: hidden;
 }
 
-.movie-box img {
+#waterfall .movie-box img {
   object-fit: cover;
   object-position: top;
   width: 100%;
@@ -50,7 +50,7 @@ h4[style="position:relative"],
   border: 1px solid #ccc;
 }
 
-.movie-box .photo-info {
+#waterfall .movie-box .photo-info {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
